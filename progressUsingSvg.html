@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Progress Indicator</title>
+    <style>
+        .track {
+            stroke: lightgray;
+            fill: none;
+        }
+        .progress {
+            fill: none;
+            stroke: #4CAF50; /* Green color for progress */
+            stroke-width: 10;
+            stroke-dasharray: 502; /* Circumference of the circle (2 * π * r) */
+            stroke-dashoffset: 502; /* Start with a fully filled circle */
+            transition: stroke-dashoffset 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <svg width="250" height="250">
+        <circle r="100" cx="125" cy="125" class="track"></circle>
+        <circle r="100" cx="125" cy="125" class="progress" id="progressCircle"></circle>
+    </svg>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var progressCircle = document.getElementById("progressCircle");
+
+            function setProgress(percentage) {
+                var circumference = 2 * Math.PI * 100; // Circumference of the circle
+                var offset = circumference - (percentage / 100) * circumference;
+                progressCircle.style.strokeDashoffset = offset;
+            }
+
+            // Set the progress to 80%
+            setProgress(80);
+        });
+    </script>
+</body>
+</html>

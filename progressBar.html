@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+        }
+        .progress{
+            position: absolute;
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+        }
+        svg{
+            width: 7rem;
+            height: 7rem;
+        }
+        circle{
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: translate(5px, 5px);
+            stroke: blue;
+            stroke-dashoffset: -30;
+            stroke-dasharray: 500;
+        }
+        .percentage{
+            position: absolute;
+            top: -3px;
+            left: -1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress">
+        <svg>
+            <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="percentage">
+            <p>81%</p>
+        </div>
+    </div>
+</body>
+</html>
